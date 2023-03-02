@@ -157,15 +157,15 @@ def update_hand(hand, word):
     returns: dictionary (string -> int)
     """
 
-    assert type(hand) == dict,        "Type error"
+    assert type(hand) == dict,        "type mismatch"
     assert len(hand) > 0,             "hand length must be more than zero"
-    assert type(word) == str,         "Type error"
-    assert len(word) > 0,             "Word length must be more than zero"
+    assert type(word) == str,         "type mismatch"
+    assert len(word) > 0,             "word length must be more than zero"
 
     temp_hand = hand.copy()
     for letter in word:
             temp_hand[letter] -= 1
-    assert type(temp_hand) == dict,   "Error type"
+    assert type(temp_hand) == dict,   "type mismatch"
     return temp_hand
 
 
