@@ -71,7 +71,18 @@ def get_word_score(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    if not word: return 0
+
+    assert type(word) == str,       "type mismatch"
+    assert word.islower(),f'{word}  "Not in lowercase'
+    assert len(word) > 0,           "word length must not be zero"
+    assert type(n) == int,          "n not integer"
+    assert n >= 0,                  "hand length must not be zero"
+    score = len(word) * sum([SCRABBLE_LETTER_VALUES[letter] for letter in word])
+    if len(word) == n:
+        score += 50
+    assert score >= 0,              "score is negative value"
+    return score
 
 
 #
@@ -145,7 +156,17 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+
+    assert type(hand) == dict,        "Type error"
+    assert len(hand) > 0,             "hand length must be more than zero"
+    assert type(word) == str,         "Type error"
+    assert len(word) > 0,             "Word length must be more than zero"
+
+    temp_hand = hand.copy()
+    for letter in word:
+            temp_hand[letter] -= 1
+    assert type(temp_hand) == dict,   "Error type"
+    return temp_hand
 
 
 #
