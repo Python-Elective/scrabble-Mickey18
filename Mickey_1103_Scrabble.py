@@ -210,7 +210,15 @@ def calculate_hand_len(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    
+    assert type(hand) == dict, "Check typo error"
+    hand_len = sum(hand.values())
+
+    return hand_len
+
+# test case 1
+hand = {'a': 1, 'b': 3, 'c': 3, 'd': 2}
+print(calculate_hand_len(hand))
 
 
 def play_hand(hand, word_list, n):
