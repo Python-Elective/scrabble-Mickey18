@@ -287,9 +287,25 @@ def play_game(word_list):
 
     2) When done playing the hand, repeat from step 1    
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    # <-- Remove this line when you code the function
-    print("play_game not yet implemented.")
+    hand = {}
+    hand2 = {}
+    while True:
+        userInput = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
+        assert type(userInput) == str, "check not a str"
+        n = 7
+        if userInput == "n":
+            hand = deal_hand(n)
+            hand2 = hand
+        elif userInput == "r":
+            if not hand2:
+                print("sorry, you didn't play the last game")
+                continue
+            else:
+                hand = hand2
+        elif userInput == "e":
+            return False
+        play_hand(hand, word_list, n)
+
 
 
 #
