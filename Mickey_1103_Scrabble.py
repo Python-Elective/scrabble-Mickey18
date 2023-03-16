@@ -281,7 +281,7 @@ def play_game(word_list):
 
     2) When done playing the hand, repeat from step 1    
     """
-    """
+
     hand = {}
     hand2 = {}
     while True:
@@ -300,7 +300,7 @@ def play_game(word_list):
         elif userInput == "e":
             return False
         play_hand(hand, word_list, n)
-    """
+
 
 
 
