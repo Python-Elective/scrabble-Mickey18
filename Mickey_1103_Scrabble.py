@@ -248,29 +248,23 @@ def play_hand(hand, word_list, n):
 
     # As long as there are still letters left in the hand:
 
-    # Display the hand
-
-    # Ask user for input
-
-    # If the input is a single period:
-
-    # End the game (break out of the loop)
-
-    # Otherwise (the input is not a single period):
-
-    # If the word is not valid:
-
-    # Reject invalid word (print a message followed by a blank line)
-
-    # Otherwise (the word is valid):
-
-    # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
-
-    # Update the hand
-
-    # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-
-
+    display_hand(hand)
+    score = 0
+    while calculate_hand_len(hand) > 0:     
+        input_hand = input(f'Enter word, or a "." to indicate that you are finished: ')
+        if input_hand == ".":
+            print(f'Total scores: {score}')
+            break
+        elif is_valid_word(input_hand, hand, word_list) == False:
+            print(f'{input_hand} Not in word_list')
+            print(f'Total scores: {score}')
+        else:
+            score += get_word_score(input_hand, n)
+            print(get_word_score(input_hand, n))
+            print(f'Total scores: {score}')   
+            hand = update_hand(hand, input_hand)
+        display_hand(hand)
+    return score
 #
 # Problem #5: Playing a game
 #
@@ -286,6 +280,7 @@ def play_game(word_list):
       * If the user inputs anything else, tell them their input was invalid.
 
     2) When done playing the hand, repeat from step 1    
+    """
     """
     hand = {}
     hand2 = {}
@@ -305,6 +300,7 @@ def play_game(word_list):
         elif userInput == "e":
             return False
         play_hand(hand, word_list, n)
+    """
 
 
 
