@@ -259,6 +259,7 @@ def play_hand(hand, word_list, n):
             print(f'{input_hand} Not in word_list')
             print(f'Total scores: {score}')
         else:
+        
             score += get_word_score(input_hand, n)
             print(get_word_score(input_hand, n))
             print(f'Total scores: {score}')   
